@@ -1,30 +1,28 @@
-import Head from "next/head";
+import { Metadata } from 'next';
 import { db, posts } from '$db'
 import type { InferModel } from "drizzle-orm";
+
+export const metadata: Metadata = {
+    title: "Bryson's Blog",
+    description: "Still a work in progress... obviously"
+}
 
 export default async function Home() {
 
     const ps = await getPosts()
 
     return (
-        <>
-            <Head>
-                <title>Bryson&apos;s Blog</title>
-                <meta name="description" content="Still a work in progress... obviously" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-            <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-                <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-                    <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-                        Bryson&apos;s <span className="text-[hsl(280,100%,70%)]">Dev</span> Blog
-                    </h1>
-                    {ps.map((p) => <PostListItem key={p.id} post={p} />)}
-                    <form action={insertPost}>
-                        <button type="submit" >insert post!</button>
-                    </form>
-                </div>
-            </main>
-        </>
+        <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+            <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
+                <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
+                    Bryson&apos;s <span className="text-[hsl(280,100%,70%)]">Dev</span> Blog
+                </h1>
+                {ps.map((p) => <PostListItem key={p.id} post={p} />)}
+                <form action={insertPost}>
+                    <button type="submit" >insert post!</button>
+                </form>
+            </div>
+        </main>
     );
 }
 
