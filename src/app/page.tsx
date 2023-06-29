@@ -44,7 +44,7 @@ async function insertPost() {
 
 async function PostListItem(props: { post: InferModel<typeof posts> }) {
     const p = props.post
-    return <div key={p.id}><h1>{p.title}: {p.id}</h1>
+    return <div key={p.id}><h2>{p.title}: {p.id}</h2>
         <pre>{p.markdown}</pre>
     </div>
 
