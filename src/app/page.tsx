@@ -6,8 +6,8 @@ export const metadata: Metadata = {
     title: "Bryson's Blog",
     description: "Still a work in progress... obviously"
 }
-// export const runtime = "edge"
-// export const revalidate = 0
+export const runtime = "edge"
+export const revalidate = 0
 
 // export default async function Home() {
     export default function Home() {
