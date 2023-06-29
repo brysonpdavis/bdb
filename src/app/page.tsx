@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 // import { db, posts } from '$db'
 // import type { InferModel } from "drizzle-orm";
 
@@ -9,7 +9,8 @@ export const metadata: Metadata = {
 // export const runtime = "edge"
 // export const revalidate = 0
 
-export default async function Home() {
+// export default async function Home() {
+    export default function Home() {
 
     // const ps = await getPosts()
 
