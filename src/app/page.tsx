@@ -49,3 +49,5 @@ async function PostListItem(props: { post: InferModel<typeof posts> }) {
     </div>
 
 }
+
+export const runtime = "edge"
