@@ -12,7 +12,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <main className="flex h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+          <div className="container h-screen flex flex-col items-center justify-center gap-12 px-4 py-16 ">
+            {children}
+          </div>
+        </main>
+      </body>
     </html>
   )
 }

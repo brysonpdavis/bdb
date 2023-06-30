@@ -14,10 +14,9 @@ export async function insertPost() {
     "use server"
     console.log('inserting...')
     await db.insert(posts).values([{
-        markdown: '<>markdown marky marky markdown</>',
-        title: 'hey its a title'
+        markdown: '<>this is some markdown</>',
+        title: 'blog post title'
     }])
     console.log('done inserting')
     revalidatePath('/')
 }
-
