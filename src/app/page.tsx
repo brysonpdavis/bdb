@@ -36,10 +36,10 @@ async function getPosts() {
     return await db.select().from(posts)
 }
 
-async function PostListItem({ post }: { post: InferModel<typeof posts> }) {
+function PostListItem({ post }: { post: InferModel<typeof posts> }) {
     return <div key={post.id}><Link href={`/${post.id}`}><h2>{post.title}: {post.id}</h2></Link>
         <pre>{post.markdown}</pre>
-        <form action={deletePost}><input hidden value={post.id} name='postId'></input><button className='btn'>delete</button></form>
+        <form action={deletePost}><input hidden defaultValue={post.id} name='postId'></input><button className='btn'>delete</button></form>
     </div>
 }
 
