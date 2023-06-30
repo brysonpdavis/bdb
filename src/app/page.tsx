@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import { revalidatePath } from 'next/cache'
 import { db, posts } from '$db'
 import type { InferModel } from "drizzle-orm";
 import Link from 'next/link';
+import { deletePost, insertPost } from './actions';
 
 export const metadata: Metadata = {
     title: "Bryson's Blog",
@@ -36,20 +36,10 @@ async function getPosts() {
     return await db.select().from(posts)
 }
 
-async function insertPost() {
-    "use server"
-    console.log('inserting...')
-    await db.insert(posts).values([{
-        markdown: '<>markdown marky marky markdown</>',
-        title: 'hey its a title'
-    }])
-    console.log('done inserting')
-    revalidatePath('/')
-}
-
-function PostListItem({ post }: { post: InferModel<typeof posts> }) {
+async function PostListItem({ post }: { post: InferModel<typeof posts> }) {
     return <div key={post.id}><Link href={`/${post.id}`}><h2>{post.title}: {post.id}</h2></Link>
         <pre>{post.markdown}</pre>
+        <form action={deletePost}><input hidden value={post.id} name='postId'></input><button className='btn'>delete</button></form>
     </div>
-
 }
+
