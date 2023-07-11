@@ -16,7 +16,7 @@ export default function Client({ parseMarkdown }: { parseMarkdown: (md: string) 
     }
 
     if (showPreview && parsedMarkdown) {
-        return <div className="w-full"><h2>{title}</h2><div className="border p-4 w-full" dangerouslySetInnerHTML={{ __html: parsedMarkdown }} ></div><button className="w-full btn btn-accent" onClick={() => setShowPreview(prev => !prev)}>back to edit</button></div>
+        return <div className="w-full"><h2>{title}</h2><div className="border p-4 w-full" dangerouslySetInnerHTML={{ __html: parsedMarkdown }} ></div><button className="w-full btn btn-accent" onClick={() => {setShowPreview(prev => !prev); setParsedMarkdown(undefined)}}>back to edit</button></div>
     }
 
     return <div className="w-full">
