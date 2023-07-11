@@ -98,12 +98,18 @@ Sample text here...
 Syntax highlighting
 
 ``` js
-var foo = function (bar) {
-  return bar++;
+type Scooby = number | string
+
+const boop = true + false === "something"
+
+const thing: {green: string, blue: string} = {
+    green: 'whatever',
+    blue: 5
 };
 
-console.log(foo(5));
-```
+thing.toString<Str>()
+
+console.log(foo(5));```
 
 ## Tables
 
