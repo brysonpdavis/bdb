@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: { postId: string } }) {
     const { markdown, ...restOfPost } = post
 
     return <div className="flex flex-col gap-4">
-        <h2 className="text-2xl font-extrabold text-white ">Bryson's Dev Blog</h2>
+        <h2 className="text-2xl font-extrabold text-white ">Bryson&apos;s Dev Blog</h2>
         <h3>metadata</h3>
         <pre>
             {JSON.stringify(restOfPost, undefined, 4)}

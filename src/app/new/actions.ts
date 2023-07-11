@@ -6,7 +6,6 @@ import { db, posts } from "$db"
 
 export async function parseMarkdown(md: string): Promise<string> {
     const processedContent = await remark()
-    // @ts-ignore
     .use(remarkHtml, {sanitize: true})
     .process(md)
 

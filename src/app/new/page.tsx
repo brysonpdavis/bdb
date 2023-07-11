@@ -4,6 +4,6 @@ import { parseMarkdown } from "./actions"
 export const runtime = "edge"
 export const revalidate = 0
 
-export default async function New() {
+export default function New() {
     return <Client parseMarkdown={parseMarkdown} />
 }
